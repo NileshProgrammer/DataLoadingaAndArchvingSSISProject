@@ -1,0 +1,873 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2021 6:43:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5Q5MJKS"
+  DTS:CreatorName="DESKTOP-5Q5MJKS\niles"
+  DTS:DTSID="{367986D3-4778-427A-8A20-483151946E9F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{57BCFDD3-CD42-4AFA-A80A-060DE74EB078}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E53EE5B8-35F7-4B39-B572-6BECDB673645}"
+      DTS:ObjectName="DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-5Q5MJKS\SQLEXPRESS;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B742B6C6-0B5E-4267-B03E-BFFC77123418}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataFolder\Employees.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="employeeId"
+              DTS:DTSID="{D2582E34-674E-478F-BF7E-BDEC5F9ED0C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="employeeName"
+              DTS:DTSID="{DB482309-0099-46DE-A707-29C5E15015A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="department"
+              DTS:DTSID="{12AB6C66-F22C-49F7-888F-8E615CBD3845}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dateOfJoining"
+              DTS:DTSID="{677F375B-2DE2-4ADF-9B64-3EED246BDE86}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FB8A9031-92D8-4A19-8F25-D85B08005B32}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataArchiveFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{742DAFCC-ACAE-4AEA-BCB3-391B7E72A692}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataInTableFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F029BFB-188F-40E1-8759-9D7E022B8624}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataLoadFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Employees.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB1893EB-CACB-470C-9115-6F2CDEDA5149}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataLoadFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataFolder\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{694C5B4E-F968-4BD1-941F-D31C724F8A59}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::DataLoadFolderPath]+ @[User::DataLoadFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataLoadFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataFolder\Employees.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{538A842E-7B37-4BB5-9112-14F82B9DB2C0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::DataInTableFolderPath]+ @[User::DataLoadFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataMovedFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employees.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6F36BB9C-D893-4044-9814-740F8C6A05C1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Employee_&quot;+(DT_WSTR,4)YEAR(GETDATE())+&quot;_&quot;+(DT_WSTR,4)MONTH(GETDATE())+&quot;_&quot;+(DT_WSTR,4)DAY(GETDATE())+&quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NewDataLoadFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Employee_2021_5_3.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E13E87C2-9910-4577-9AEE-24EF25802C02}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::DataInTableFolderPath]+ @[User::NewDataLoadFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NewDataLoadFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_3.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Archiving FIle after succefful data load in database"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{36CD234B-C055-4ED9-9F9B-89FBB779E3C2}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Archiving FIle after succefful data load in database"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">"a "+"\"-t7z\""+" \""+ @[User::DataArchiveFolderPath]+ left(@[User::NewDataLoadFileName],len( @[User::NewDataLoadFileName])-3)+"zip"+"\" "+ "\""+ @[User::NewDataLoadFullPath] + "\""</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\7-Zip\7z.exe"
+          Arguments="a &quot;-t7z&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\Employee_2021_5_3.zip&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_3.txt&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete File After Archiving"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{57E843C5-5A9E-4BAE-B873-30D23243DF12}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete File After Archiving"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="User::NewDataLoadFullPath"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Moving the File after data tranfer to table"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{536C4CF1-0BFD-4CE7-A3B3-D4153D93FFFB}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Moving the File after data tranfer to table"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskSourcePath="User::DataLoadFullPath"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::DataInTableFolderPath"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Renaming the File with Date"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{DFE79414-05AA-4212-8E7F-EBBA8679EB0F}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Renaming the File with Date"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="RenameFile"
+          TaskSourcePath="User::DataMovedFolderPath"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::NewDataLoadFullPath"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfering Data from Flat Fill to Database"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D778D1FB-23CA-4EC6-8769-26A741B81496}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfering Data from Flat Fill to Database"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV)"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="16393"
+              name="Customer File Data (CSV)"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[employeeId]"
+                      length="50"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeId]"
+                      name="employeeId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[employeeName]"
+                      length="50"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeName]"
+                      name="employeeName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[department]"
+                      length="50"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[department]"
+                      name="department"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[dateOfJoining]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[dateOfJoining]"
+                      length="50"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[dateOfJoining]"
+                      name="dateOfJoining"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[employeeId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employeeId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[employeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employeeName" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].ExternalColumns[dateOfJoining]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="dateOfJoining" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfering Data from Flat Fill to Database\Customer Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Customer Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[employee_list]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[employeeId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="employeeId"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeId]" />
+                    <inputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[employeeName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="employeeName"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeName]" />
+                    <inputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[department]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="department"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[department]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[department]" />
+                    <inputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[dateOfJoining]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dateOfJoining"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[dateOfJoining]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
+                      dataType="i4"
+                      name="employeeId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="employeeName" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="department" />
+                    <externalMetadataColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
+                      dataType="dbDate"
+                      name="dateOfJoining" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfering Data from Flat Fill to Database.Paths[Flat File Source Output]"
+              endId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C724176-7C2E-49CC-8603-F982EA7103AF}"
+      DTS:From="Package\Transfering Data from Flat Fill to Database"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Moving the File after data tranfer to table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E0F4AE2-5C9E-4707-94DC-1657D9D8F9B7}"
+      DTS:From="Package\Moving the File after data tranfer to table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Renaming the File with Date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3FB647FA-2430-4D98-A1C4-934DDBF61ED1}"
+      DTS:From="Package\Renaming the File with Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Archiving FIle after succefful data load in database" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0BC1683A-8F52-4B8E-9DF0-409D95F93D7F}"
+      DTS:From="Package\Archiving FIle after succefful data load in database"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Delete File After Archiving" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="274.4,41.6"
+          Id="Package\Transfering Data from Flat Fill to Database"
+          TopLeft="215.833324756888,63.266667169465" />
+        <NodeLayout
+          Size="264.8,41.6"
+          Id="Package\Moving the File after data tranfer to table"
+          TopLeft="339.999986489614,145.600001157125" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="353.033324756888,104.866667169465">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.366661732727,40.7333339876598"
+              Start="0,0"
+              End="119.366661732727,33.2333339876598">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3666669938299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.3666669938299"
+                    Point2="0,20.3666669938299"
+                    Point3="4,20.3666669938299" />
+                  <mssgle:LineSegment
+                    End="115.366661732727,20.3666669938299" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.366661732727,20.3666669938299"
+                    Point2="119.366661732727,20.3666669938299"
+                    Point3="119.366661732727,24.3666669938299" />
+                  <mssgle:LineSegment
+                    End="119.366661732727,33.2333339876598" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Renaming the File with Date"
+          TopLeft="449.166648818388,226.200001797676" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="472.399986489614,187.200001157125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.1666623287739,39.0000006405512"
+              Start="0,0"
+              End="97.1666623287739,31.5000006405512">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5000003202756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5000003202756"
+                    Point2="0,19.5000003202756"
+                    Point3="4,19.5000003202756" />
+                  <mssgle:LineSegment
+                    End="93.1666623287739,19.5000003202756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.1666623287739,19.5000003202756"
+                    Point2="97.1666623287739,19.5000003202756"
+                    Point3="97.1666623287739,23.5000003202756" />
+                  <mssgle:LineSegment
+                    End="97.1666623287739,31.5000006405512" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="311.2,41.6"
+          Id="Package\Archiving FIle after succefful data load in database"
+          TopLeft="580.833310253091,316.333335847325" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="569.566648818388,267.800001797676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.866661434703,48.5333340496488"
+              Start="0,0"
+              End="166.866661434703,41.0333340496488">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2666670248244"
+                    Point2="0,24.2666670248244"
+                    Point3="4,24.2666670248244" />
+                  <mssgle:LineSegment
+                    End="162.866661434703,24.2666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.866661434703,24.2666670248244"
+                    Point2="166.866661434703,24.2666670248244"
+                    Point3="166.866661434703,28.2666670248244" />
+                  <mssgle:LineSegment
+                    End="166.866661434703,41.0333340496488" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Delete File After Archiving"
+          TopLeft="785.833302107124,399.533336508539" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="736.433310253091,357.933335847325">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.599991854032,41.6000006612142"
+              Start="0,0"
+              End="148.599991854032,34.1000006612142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8000003306071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8000003306071"
+                    Point2="0,20.8000003306071"
+                    Point3="4,20.8000003306071" />
+                  <mssgle:LineSegment
+                    End="144.599991854032,20.8000003306071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.599991854032,20.8000003306071"
+                    Point2="148.599991854032,20.8000003306071"
+                    Point3="148.599991854032,24.8000003306071" />
+                  <mssgle:LineSegment
+                    End="148.599991854032,34.1000006612142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transfering Data from Flat Fill to Database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV)"
+          TopLeft="334.999986688297,55.4666671074761" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Transfering Data from Flat Fill to Database\Customer Table"
+          TopLeft="528.333312339254,139.533334442245" />
+        <EdgeLayout
+          Id="Package\Transfering Data from Flat Fill to Database.Paths[Flat File Source Output]"
+          TopLeft="434.599986688297,97.0666671074762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169.733325650957,42.4666673347685"
+              Start="0,0"
+              End="169.733325650957,34.9666673347685">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333336673843"
+                    Point2="0,21.2333336673843"
+                    Point3="4,21.2333336673843" />
+                  <mssgle:LineSegment
+                    End="165.733325650957,21.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="165.733325650957,21.2333336673843"
+                    Point2="169.733325650957,21.2333336673843"
+                    Point3="169.733325650957,25.2333336673843" />
+                  <mssgle:LineSegment
+                    End="169.733325650957,34.9666673347685" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfering Data from Flat Fill to Database\Customer Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
