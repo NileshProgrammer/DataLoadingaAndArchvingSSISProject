@@ -11,78 +11,10 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{57BCFDD3-CD42-4AFA-A80A-060DE74EB078}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{5C885B28-613F-4531-88A8-AC294AD521C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{E53EE5B8-35F7-4B39-B572-6BECDB673645}"
-      DTS:ObjectName="DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-5Q5MJKS\SQLEXPRESS;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B742B6C6-0B5E-4267-B03E-BFFC77123418}"
-      DTS:ObjectName="Flat File Connection Manager">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="16393"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataFolder\Employees.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="employeeId"
-              DTS:DTSID="{D2582E34-674E-478F-BF7E-BDEC5F9ED0C3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="employeeName"
-              DTS:DTSID="{DB482309-0099-46DE-A707-29C5E15015A7}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="department"
-              DTS:DTSID="{12AB6C66-F22C-49F7-888F-8E615CBD3845}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="dateOfJoining"
-              DTS:DTSID="{677F375B-2DE2-4ADF-9B64-3EED246BDE86}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -151,7 +83,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NewDataLoadFileName">
       <DTS:VariableValue
-        DTS:DataType="8">Employee_2021_5_3.txt</DTS:VariableValue>
+        DTS:DataType="8">Employee_2021_5_5.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -162,7 +94,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NewDataLoadFullPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_3.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_5.txt</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -182,7 +114,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\Program Files\7-Zip\7z.exe"
-          Arguments="a &quot;-t7z&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\Employee_2021_5_3.zip&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_3.txt&quot;" />
+          Arguments="a &quot;-t7z&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\Employee_2021_5_5.zip&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_5.txt&quot;" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -279,8 +211,8 @@
               <connections>
                 <connection
                   refId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="{B742B6C6-0B5E-4267-B03E-BFFC77123418}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -493,8 +425,8 @@
               <connections>
                 <connection
                   refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-5Q5MJKS\SQLEXPRESS.SSIS]"
+                  connectionManagerID="{E53EE5B8-35F7-4B39-B572-6BECDB673645}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-5Q5MJKS_SQLEXPRESS.SSIS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -648,13 +580,25 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="274.4,41.6"
-          Id="Package\Transfering Data from Flat Fill to Database"
-          TopLeft="215.833324756888,63.266667169465" />
+          Size="311.2,41.6"
+          Id="Package\Archiving FIle after succefful data load in database"
+          TopLeft="580.833310253091,316.333335847325" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Delete File After Archiving"
+          TopLeft="785.833302107124,399.533336508539" />
         <NodeLayout
           Size="264.8,41.6"
           Id="Package\Moving the File after data tranfer to table"
           TopLeft="339.999986489614,145.600001157125" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Renaming the File with Date"
+          TopLeft="449.166648818388,226.200001797676" />
+        <NodeLayout
+          Size="274.4,41.6"
+          Id="Package\Transfering Data from Flat Fill to Database"
+          TopLeft="215.833324756888,63.266667169465" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="353.033324756888,104.866667169465">
@@ -689,10 +633,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="240.8,41.6"
-          Id="Package\Renaming the File with Date"
-          TopLeft="449.166648818388,226.200001797676" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="472.399986489614,187.200001157125">
@@ -727,10 +667,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="311.2,41.6"
-          Id="Package\Archiving FIle after succefful data load in database"
-          TopLeft="580.833310253091,316.333335847325" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="569.566648818388,267.800001797676">
@@ -765,10 +701,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\Delete File After Archiving"
-          TopLeft="785.833302107124,399.533336508539" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="736.433310253091,357.933335847325">
