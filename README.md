@@ -1,6 +1,6 @@
 # DataLoadingaAndArchvingSSISProject
  
- ProjectDetails
+ ProjectDetails:
  Daily Data is received in CSV file. 
  Using SSIS,This data is then transfer to SQL SERVER database and the file is rename and Archived in the Folder
 
