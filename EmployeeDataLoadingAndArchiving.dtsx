@@ -7,12 +7,12 @@
   DTS:CreatorName="DESKTOP-5Q5MJKS\niles"
   DTS:DTSID="{367986D3-4778-427A-8A20-483151946E9F}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{5C885B28-613F-4531-88A8-AC294AD521C1}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{A04D2B01-6539-4A2B-B73C-6CAEB69346A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -83,7 +83,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NewDataLoadFileName">
       <DTS:VariableValue
-        DTS:DataType="8">Employee_2021_5_5.txt</DTS:VariableValue>
+        DTS:DataType="8">Employee_2021_5_10.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -94,7 +94,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NewDataLoadFullPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_5.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_10.txt</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -114,7 +114,7 @@
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="C:\Program Files\7-Zip\7z.exe"
-          Arguments="a &quot;-t7z&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\Employee_2021_5_5.zip&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_5.txt&quot;" />
+          Arguments="a &quot;-t7z&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataArchivedFolder\Employee_2021_5_10.zip&quot; &quot;C:\Users\niles\OneDrive\Documents\SSIS Project\DataLoadingaAndArchvingProject\DataInTableLoadedFolder\Employee_2021_5_10.txt&quot;" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -367,11 +367,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Transfering Data from Flat Fill to Database\Customer Table"
+              refId="Package\Transfering Data from Flat Fill to Database\EmployeeData"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Customer Table"
+              name="EmployeeData"
               usesDispositions="true"
               version="4">
               <properties>
@@ -382,7 +382,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[employee_list]</property>
+                  name="OpenRowset">[dbo].[EmployeeData]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -424,96 +424,100 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Connections[OleDbConnection]"
-                  connectionManagerID="{E53EE5B8-35F7-4B39-B572-6BECDB673645}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-5Q5MJKS_SQLEXPRESS.SSIS]"
+                  refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Connections[OleDbConnection]"
+                  connectionManagerID="{DB16CC43-79D5-4B98-B625-9048CE303759}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-5Q5MJKS.SSIS.sa]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]"
+                  refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[employeeId]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].Columns[employeeId]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="employeeId"
-                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
                       lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeId]" />
                     <inputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[employeeName]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].Columns[employeeName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="employeeName"
-                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
                       lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[employeeName]" />
                     <inputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[department]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].Columns[department]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="department"
-                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[department]"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[department]"
                       lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[department]" />
                     <inputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].Columns[dateOfJoining]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].Columns[dateOfJoining]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="dateOfJoining"
-                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
+                      externalMetadataColumnId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
                       lineageId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output].Columns[dateOfJoining]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
-                      dataType="i4"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[employeeId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="employeeId" />
                     <externalMetadataColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[employeeName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="employeeName" />
                     <externalMetadataColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[department]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[department]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="department" />
                     <externalMetadataColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
-                      dataType="dbDate"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input].ExternalColumns[dateOfJoining]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="dateOfJoining" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Transfering Data from Flat Fill to Database\Customer Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -525,7 +529,7 @@
           <paths>
             <path
               refId="Package\Transfering Data from Flat Fill to Database.Paths[Flat File Source Output]"
-              endId="Package\Transfering Data from Flat Fill to Database\Customer Table.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfering Data from Flat Fill to Database\EmployeeData.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV).Outputs[Flat File Source Output]" />
           </paths>
@@ -744,39 +748,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Transfering Data from Flat Fill to Database\EmployeeData"
+          TopLeft="528.333312339254,139.533334442245" />
+        <NodeLayout
           Size="199.2,41.6"
           Id="Package\Transfering Data from Flat Fill to Database\Customer File Data (CSV)"
           TopLeft="334.999986688297,55.4666671074761" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Transfering Data from Flat Fill to Database\Customer Table"
-          TopLeft="528.333312339254,139.533334442245" />
         <EdgeLayout
           Id="Package\Transfering Data from Flat Fill to Database.Paths[Flat File Source Output]"
-          TopLeft="434.599986688297,97.0666671074762">
+          TopLeft="434.599986688297,97.0666671074761">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="169.733325650957,42.4666673347685"
+              EndConnector="166.933325650957,42.4666673347689"
               Start="0,0"
-              End="169.733325650957,34.9666673347685">
+              End="166.933325650957,34.9666673347689">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.2333336673843" />
+                    End="0,17.2333336673845" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.2333336673843"
-                    Point2="0,21.2333336673843"
-                    Point3="4,21.2333336673843" />
+                    Point1="0,17.2333336673845"
+                    Point2="0,21.2333336673845"
+                    Point3="4,21.2333336673845" />
                   <mssgle:LineSegment
-                    End="165.733325650957,21.2333336673843" />
+                    End="162.933325650957,21.2333336673845" />
                   <mssgle:CubicBezierSegment
-                    Point1="165.733325650957,21.2333336673843"
-                    Point2="169.733325650957,21.2333336673843"
-                    Point3="169.733325650957,25.2333336673843" />
+                    Point1="162.933325650957,21.2333336673845"
+                    Point2="166.933325650957,21.2333336673845"
+                    Point3="166.933325650957,25.2333336673845" />
                   <mssgle:LineSegment
-                    End="169.733325650957,34.9666673347685" />
+                    End="166.933325650957,34.9666673347689" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -789,7 +793,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfering Data from Flat Fill to Database\Customer Table">
+    design-time-name="Package\Transfering Data from Flat Fill to Database\EmployeeData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -9,6 +9,12 @@
     DTS:Name="ServerName">@[$Project::SourceServer]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=DESKTOP-5Q5MJKS\SQLEXPRESS;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-5Q5MJKS\SQLEXPRESS;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/HcHHBBaL0q+GHnyd1TLPwAAAAACAAAAAAAQZgAAAAEAACAAAABgiXhETMOP0DjVsbCCOexH0/neV4g++Iedcr35AR7KrAAAAAAOgAAAAAIAACAAAAAWYL2HA/B4T83gOSMM9kplr7GpKkg4iRNIDj9qViyJJIAAAAA8U7aKNx88Y37xsFb8OS9ZrRLjzzRNfpJ0HmrvFQtEQYYdc+yaQRk/8p5opohqQbOAZQbCH4qday5r4VMpgom+oPTH+YYQCgOdCDUadrvUjkDj3Sbk8lz96wYtJFZ9QybiUzwWrEy5ZlhPv86sst9D58Wh3NBqmdipGw6mIPiBDUAAAACG2GkQLQbhqTgglkynhv4SG7VTuxt7NKh4YVtpmj2D3qjlg9WY7ceYQsDs0ic3/GoOjVSVhHJu9kLujRPJ3Gia</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

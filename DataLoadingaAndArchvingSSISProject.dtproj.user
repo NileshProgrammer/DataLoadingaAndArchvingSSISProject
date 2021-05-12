@@ -8,6 +8,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>DESKTOP-5Q5MJKS</ServerName>
+        <PathOnServer>/SSISDB/DataLoadingaAndArchvingSSISProject/DataLoadingaAndArchvingSSISProject</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
